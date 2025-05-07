@@ -1,0 +1,46 @@
+
+
+<main>
+
+<div style="margin-bottom: auto 20px; margin-left: 300px;">
+    <h2 >Registration Form:</h2>
+
+    <br>
+    <br>
+  </div>
+    <div style="margin-top: 20px; margin-left: 300px;">
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="fullName">Full Name:</label><br>
+      <input type="text" id="fullName" formControlName="fullName">
+      <div *ngIf="registrationForm?.get('fullName')?.invalid && (registrationForm?.get('fullName')?.dirty || registrationForm?.get('fullName')?.touched)">
+        <div *ngIf="registrationForm?.get('fullName')?.errors?.['required']">Full Name is required.</div>
+        <div *ngIf="registrationForm?.get('fullName')?.errors?.['pattern']">Invalid Full Name.</div>
+      </div>
+    </div>
+  
+    <div>
+        <label for="dateOfBirth">Date of Birth:</label><br>
+        <input type="date" id="dateOfBirth" formControlName="dateOfBirth">
+        <div *ngIf="registrationForm?.get('dateOfBirth')?.invalid && registrationForm?.get('dateOfBirth')?.touched">
+          Date of birth is required.
+        </div>
+      </div>
+  
+    <div>
+      <label for="ssn">Social Security Number:</label><br>
+      <input type="text" formControlName="ssn" placeholder="000-00-0000">
+      <div *ngIf="registrationForm?.get('ssn')?.invalid && (registrationForm?.get('ssn')?.dirty || registrationForm?.get('ssn')?.touched)">
+          <div *ngIf="registrationForm?.get('ssn')?.errors?.['required']">SSN is required.</div>
+          <div *ngIf="registrationForm?.get('ssn')?.errors?.['pattern']">Invalid SSN format.</div>
+          <div *ngIf="registrationForm?.get('ssn')?.errors?.['ssnInvalid']">Invalid SSN</div>
+      </div>
+    </div>
+
+    <button type="submit" id="sudmitbutton" class="primary" [disabled]="registrationForm?.invalid">Register</button>
+  </form>
+
+  </div>
+
+</main>
