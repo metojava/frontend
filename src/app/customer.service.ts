@@ -94,5 +94,8 @@ export class CustomerService {
 
   }
 
+  deleteCustomer(id: any){
+    return this.http.delete(`${this.url}/Customers/${id}`);
+  }
 
 }

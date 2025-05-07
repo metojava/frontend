@@ -72,7 +72,13 @@ export class RegistrationFormComponent implements OnInit {
       const dateOfBirth = this.registrationForm.controls['dateOfBirth'].value;
 
       this.customerService.registerCustomer(fullName, ssn, dateOfBirth);
-      this.router.navigate(['/home']);
+      setTimeout(() => {
+        this.router.navigate(['/home']).then(()=>{
+          //window.location.reload();
+          this.customerService.getAllCustomers();
+        });
+      }, 1000);
+      
 
     } else {
       console.log('Form is invalid. Please check the fields.');

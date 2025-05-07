@@ -1,0 +1,10 @@
+.tableDiv {
+    width: 10%;
+    float: left;
+}
+
+.content {
+    margin: 0 auto;
+    width: 90%;
+    float: right;
+}

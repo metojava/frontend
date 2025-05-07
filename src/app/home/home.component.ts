@@ -9,6 +9,7 @@ import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 import { RouterOutlet, RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ import { Subscription } from 'rxjs';
     FormsModule, ReactiveFormsModule,
     SearchResultComponent,
     RouterOutlet, RouterModule,
-    RouterLink, RouterLinkActive
+    RouterLink, RouterLinkActive,
+    MatButtonModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -60,7 +62,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  displayedColumns: string[] = ['fullName', 'ssn', 'dateOfBirth'];
+  displayedColumns: string[] = ['fullName', 'ssn', 'dateOfBirth', 'actions'];
   //dataSource = this.CUSTOMER_DATA;
   dataSource = this.customersList;
+
+  onDeleteClick(id: any){
+    alert(id);
+    this.customerService.deleteCustomer(id).subscribe({
+      next: () => {
+        // Handle success, e.g., remove the item from the UI
+        console.log('Customer deleted successfully');
+      },
+      error: (error) => {
+        // Handle error, e.g., display an error message
+        console.error('Error deleting Customer', error);
+      }
+    });
+  }
+
 }

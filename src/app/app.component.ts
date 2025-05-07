@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Customer } from './customer';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,  CommonModule, 
+  imports: [RouterOutlet,  CommonModule, MatMenuModule,MatButtonModule,
              RouterModule, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

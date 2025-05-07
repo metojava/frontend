@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
@@ -14,9 +13,15 @@ export const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegistrationFormComponent,
+        loadComponent: () =>  import('./registration-form/registration-form.component').then((c) => c.RegistrationFormComponent),
         title: 'Customer Registration'
       },
+      {
+        path: 'contact',
+        loadComponent: () =>  import('./contact-form/contact-form.component').then((c) => c.ContactFormComponent),
+        title: 'Contact Form'
+      },
+      
       {
         path: '**',
         component: PageNotFoundComponent,
