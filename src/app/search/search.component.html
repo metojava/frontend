@@ -1,14 +1,14 @@
 <form [formGroup]="searchForm" (ngSubmit)="search()">
-  <div>
-    <label for="dateOfBirth">Date of Birth:</label>
+  <div style="margin-left: 10px;">
+    <label for="dateOfBirth" style="margin-left: 10px;">Date of Birth:</label>
     <input type="date" id="dateOfBirth" formControlName="dateOfBirth">
     <div *ngIf="searchForm?.get('dateOfBirth')?.invalid && searchForm?.get('dateOfBirth')?.touched">
       Date of birth is required.
     </div>
   </div>
 
-<div>
-  <label for="ssn">Social Security Number /last 4 digits/ :</label>
+<div style="margin-left: 10px;">
+  <label for="ssn" style="margin-left: 10px;">SSN, last 4 digits:</label>
   <input type="text" formControlName="ssn" placeholder="0000">
   <div *ngIf="searchForm?.get('ssn')?.invalid && (searchForm?.get('ssn')?.dirty || searchForm?.get('ssn')?.touched)">
     <small *ngIf="searchForm?.get('ssn')?.errors?.['required']">Social Security Number is required.</small>

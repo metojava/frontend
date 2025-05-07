@@ -162,6 +162,7 @@
   .left-side {
     width: 40%;
     height: 220px;
+    align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
