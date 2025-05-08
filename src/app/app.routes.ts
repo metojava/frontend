@@ -16,11 +16,6 @@ export const routes: Routes = [
         loadComponent: () =>  import('./registration-form/registration-form.component').then((c) => c.RegistrationFormComponent),
         title: 'Customer Registration'
       },
-      {
-        path: 'contact',
-        loadComponent: () =>  import('./contact-form/contact-form.component').then((c) => c.ContactFormComponent),
-        title: 'Contact Form'
-      },
       
       {
         path: '**',

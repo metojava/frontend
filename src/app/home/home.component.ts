@@ -8,7 +8,7 @@ import { SearchResultComponent } from '../search-result/search-result.component'
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 import { RouterOutlet, RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, switchMap } from 'rxjs';
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({
@@ -42,10 +42,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.dataSource = this.customersList;
     });
     this.customerService.getAllCustomers();
-    // this.customerService.getAllCustomers().then((customersList: Customer[]) => {
-    //   this.customersList = customersList;
-    //   this.dataSource = this.customersList;
-    // });
   }
 
   ngOnInit() {
@@ -63,18 +59,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   displayedColumns: string[] = ['fullName', 'ssn', 'dateOfBirth', 'actions'];
-  //dataSource = this.CUSTOMER_DATA;
   dataSource = this.customersList;
 
   onDeleteClick(id: any){
-    alert(id);
-    this.customerService.deleteCustomer(id).subscribe({
+    this.customerService.deleteCustomer(id).pipe(
+      switchMap(() => this.customerService.getAllCustomers())
+    ).subscribe({
       next: () => {
-        // Handle success, e.g., remove the item from the UI
         console.log('Customer deleted successfully');
       },
       error: (error) => {
-        // Handle error, e.g., display an error message
         console.error('Error deleting Customer', error);
       }
     });
