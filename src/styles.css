@@ -23,3 +23,7 @@
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.colored {
+  /*filter: invert(2%) sepia(212%) saturate(108%) hue-rotate(182deg) brightness(106%) contrast(96%); */
+}

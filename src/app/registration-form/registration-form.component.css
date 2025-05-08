@@ -2,18 +2,22 @@ input[type="text"] {
     border: solid 1px var(--primary-color);
     padding: 10px;
     border-radius: 8px;
-    margin-right: 4px;
+    margin-left: 10px;
     display: inline-block;
-    width: 160px;
+    width: 248px;
   }
   
   input[type="date"] {
     border: solid 1px var(--primary-color);
     padding: 10px;
     border-radius: 8px;
-    margin-right: 4px;
+    margin-left: 10px;
     display: inline-block;
-    width: 160px;
+    width: 248px;
+  }
+
+  label {
+    margin-left: 20px;
   }
 
   main {
@@ -35,6 +39,8 @@ input[type="text"] {
     background: var(--primary-color);
     color: white;
     border-radius: 8px;
+    margin-top: 8px;
+    margin-left: 10px;
   }
 
   button:disabled ,
@@ -44,4 +50,9 @@ input[type="text"] {
     cursor: not-allowed;
   }
 
-
+  .regform {
+    margin-top: 10px; 
+    margin-left: 300px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 284px;
+  }

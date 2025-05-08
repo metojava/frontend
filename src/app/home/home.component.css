@@ -160,14 +160,14 @@
   }
 
   .left-side {
-    width: 40%;
-    height: 220px;
+    width: 36%;
+    height: 280px;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
   .right-side {
-    width: 60%;
+    width: 64%;
     height: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
